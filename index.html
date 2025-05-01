@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A journey of my life, who I am, and who I want to be."
+    />
+    <script src="/scripts/script.js" defer></script>
+    <script src="/scripts/carousel.js" defer></script>
+
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <div id="cursor-trail"></div>
+    <header>
+      <div class="nav-container">
+        <a href="#home">
+          <img src="/images/AD-logo-01.svg" alt="My Logo" class="logo" />
+        </a>
+      <nav>
+          <ul id="nav-menu" class="nav-links closed">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#featured-works">Work</a></li>
+            <li><a href="#about-me">About</a></li>
+            <li><a href="#contact-page">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div id="crab-menu" class="crab-menu">🦀</div>
+      
+    </header>
+
+
+
+    <div id="home" class="page-title">
+      <h2>hello, i'm</h2>
+      <h1>
+        <span>STEPHANIE</span>
+        <span>ANNABELLE</span>
+        <span>HILLIER</span>
+    </h1>
+      <p>web devloper and graphic designer</p>
+    </div>
+
+    <main>
+      <section class="content-container">
+        <div class="text-container">
+          <h2>Explore My Website 🦀</h2>
+          <p>
+            Welcome to my website. My name is Stephanie Annabelle Hillier, owner
+            of
+            <a class="website" href="www.atlanticadesigns.com"
+              >atlanticadesigns.com</a
+            >, and I am an aspiring
+            <span class="job-title">Web Developer and Graphic Designer</span>.
+            My inspirations come from my island province of Newfoundland and
+            Labrador, off the Atlantic coast of Canada, with it's rich culture,
+            beautiful landscapes, and incredible animal and plant life. Enjoy
+            the journey!
+          </p>
+        </div>
+        <div class="vid-container">
+            <video controls autoplay muted loop>
+              <source
+                src="/videos/8318476-uhd_2560_1440_25fps.mp4"
+                type="video/mp4"
+              />
+              Your video does not support the video tag.
+            </video>
+        </div>
+      </section>
+
+      <div class="nav-wrapper">
+        <section class="nav-pages">
+          <div class="background-box"></div>
+          <div class="card-wrapper">
+            <div class="red-bg">
+            <div class="movie-page">
+              <img src="/images/movie-db.png" alt="Move Data Base" />
+            </div>
+
+            <div class="country-page">
+              <img src="/images/country-site.png" alt="The Country Project" />
+            </div>
+            
+            <div class="trivia-page">
+              <img src="/images/trivia-game.png" alt="Trivia Game" />
+            </div>
+          </div>
+            <h2 class="title-works"><a href="#featured-works">MY WORK</a></h2>
+          </div>
+        </section>
+
+        <section class="nav-about-page">
+          <div class="card-wrapper">
+            <div class="red-bg">
+            <div class="about-background-box"></div>
+
+            <div class="nl-page">
+              <img src="/images/fog-lighthouse.jpg" alt="Lighthouse" />
+            </div>
+
+            <div class="about-me-page">
+              <img src="/images/andes.jpg" alt="Peru" />
+            </div>
+
+            <div class="kayaking-page">
+              <img src="/images/kayaking.jpg" alt="Trivia Game" />
+            </div>
+          </div>
+            <h2 class="title-about-me"><a href="#about-me">ABOUT ME</a></h2>
+          </div>
+
+        </section>
+      </div>
+
+      <section class="lets-connect">
+        <h2>
+          <a href="#contact-page" Lets Connect>Let's Connect</a>
+          <span class="plug-icon">🔌</span>
+        </h2>
+      </section>
+
+      <!-- WORKS SECTION -->
+
+      <section id="featured-works" class="works">
+        <h2 class="works-h2">
+          <span class="gradient-text">Featured Work</span>
+          <span class="palette-emoge">🎨</span>
+        </h2>
+        <p class="works-p">
+          Welcome to my Featured Work Gallery and Creation Video. I hope you
+          enjoy the tour!
+        </p>
+      </section>
+
+      <section id="works-gallery">
+        <!-- Works Section -->
+        <div class="carousel-window">
+          <div class="works-container">
+            <!-- Work Item 1 -->
+            <div class="work-item movie-db">
+              <img src="/images/movie-db.png" alt="Work 2" />
+              <p class="movie-title">Movie Data Base</p>
+              <a class="live-site-movie" href="https://www.moviedatabase.com" target="_blank">Live Site</a>
+              <a class="github-movie" href="https://github.com" target="_blank">GitHub</a>
+              <div class="tools-toggle">
+                <span class="tools-text">Development Tools</span>
+                <span class="crab">🦀</span>
+                <ul class="tools-dropdown">
+                  <li>Adobe Photoshop</li>
+                  <li>Adobe XD</li>
+                </ul>
+              </div>
+            </div>
+      
+            <!-- Work Item 2 -->
+            <div class="work-item trivia-game">
+              <img src="/images/trivia-game.png" alt="Work 1" />
+              <p class="trivia-title">Trivia Game</p>
+              <a class="live-site-trivia" href="https://www.seinfeldtrivia.com" target="_blank">Live Site</a>
+              <a class="github-trivia" href="https://github.com" target="_blank">GitHub</a>
+              <div class="tools-toggle">
+                <span class="tools-text">Development Tools</span>
+                <span class="crab">🦀</span>
+                <ul class="tools-dropdown">
+                  <li>Javascript</li>
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>Adobe Illustrator</li>
+                </ul>
+              </div>
+            </div>
+      
+            <!-- Work Item 3 -->
+            <div class="work-item school-site">
+              <img src="/images/scool-site.jpg" alt="Work 3" />
+              <p class="school-title">School Site</p>
+              <a class="live-site-school" href="https://www.schoolsite.com" target="_blank">Live Site</a>
+              <a class="github-school" href="https://github.com" target="_blank">GitHub</a>
+              <div class="tools-toggle">
+                <span class="tools-text">Development Tools</span>
+                <span class="crab">🦀</span>
+                <ul class="tools-dropdown">
+                  <li>React</li>
+                  <li>WordPress</li>
+                  <li>PHP</li>
+                  <li>CSS</li>
+                </ul>
+              </div>
+            </div>
+      
+            <!-- Work Item 4 -->
+            <div class="work-item vancouver-site">
+              <img src="/images/vancouver-site.webp" alt="Work 4" />
+              <p class="vancouver-title">Vancouver Site</p>
+              <a class="live-site-vancouver" href="https://www.vancouver.com" target="_blank">Live Site</a>
+              <a class="github-vancouver" href="https://github.com" target="_blank">GitHub</a>
+              <div class="tools-toggle">
+                <span class="tools-text">Development Tools</span>
+                <span class="crab">🦀</span>
+                <ul class="tools-dropdown">
+                  <li>React</li>
+                  <li>PHP</li>
+                  <li>WordPress</li>
+                  <li>CSS</li>
+                </ul>
+              </div>
+            </div>
+      
+            <!-- Work Item 5 -->
+            <div class="work-item online-stores">
+              <img src="/images/online-stores.png" alt="Work 5" />
+              <p class="stores-title">WooCommerce-Online Stores</p>
+              <a class="live-site-stores" href="https://www.onlinestores.com" target="_blank">Live Site</a>
+              <a class="github-stores" href="https://github.com" target="_blank">GitHub</a>
+              <div class="tools-toggle">
+                <span class="tools-text">Development Tools</span>
+                <span class="crab">🦀</span>
+                <ul class="tools-dropdown">
+                  <li>React</li>
+                  <li>PHP</li>
+                  <li>WordPress</li>
+                  <li>CSS</li>
+                </ul>
+              </div>
+            </div>
+      
+            <!-- Work Item 6 -->
+            <div class="work-item country-site">
+              <img src="/images/country-site.png" alt="Work 6" />
+              <p class="country-title">Country Project</p>
+              <a class="live-site-country" href="https://www.countrysite.com" target="_blank">Live Site</a>
+              <a class="github-country" href="https://github.com" target="_blank">GitHub</a>
+              <div class="tools-toggle">
+                <span class="tools-text">Development Tools</span>
+                <span class="crab">🦀</span>
+                <ul class="tools-dropdown">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>Adobe Illustrator</li>
+                  <li>Adobe Photoshop</li>
+                </ul>
+              </div>
+            </div>
+          </div> <!-- End of .works-container -->
+      
+          <!-- Carousel Arrows OUTSIDE of .work-item -->
+          <div class="carousel-navigation">
+            <button class="carousel-arrow left">←</button>
+            <span class="carousel-text">More Works</span>
+            <button class="carousel-arrow right">→</button>
+          </div>
+        </div> <!-- End of .carousel-window -->
+      </section>
+      
+           
+      
+      
+
+      <p class="works-video-p">
+        <span class="works-text">Creating my Wesite</span><span class="emoji">🛠️</span>
+      </p>
+      <section class="works-vid-container">
+        <div class="video-wrapper">
+          <video controls autoplay muted loop>
+            <source src="/videos/2025-04-09 10-26-42.mp4" type="video/mp4" />
+            Your video does not support the video tag.
+          </video>
+        </div>
+      </section>
+
+      <section class="lets-connect-works">
+        <h2>
+          <a href="#contact-page" Lets Connect>Let's Connect</a>
+          <span class="plug-icon-works">🔌</span>
+        </h2>
+      </section>
+
+      
+      
+      <!-- About Section -->
+
+      <section id="about-me" class="about-section">
+        <h2 class="about-h2">
+          <span class="gradient-text-about">About Me</span>
+          <span class="female-emoge">♀</span>
+        </h2>
+        <p class="about-p">
+          Welcome to my about page. I hope you enjoy getting to know me better!
+        </p>
+      </section>
+
+      <section class="about-content-container">
+        <div class="about-text-container">
+          <h2>Hi, I'm Stephanie,</h2>
+          <p>
+            Thank you for visiting my website. Becoming a
+            <span class="job-title">Web Developer and Graphic Designer</span>
+            was a big career change for me after 22 years of working in the
+            industry of Tourism and Hospitality Management. Luckily for me I
+            embrace change and remind myself every day that I don't want to die
+            in the future without living in today. To get to know more about me
+            click the decription boxes below...
+          </p>
+        </div>
+        <div class="about-img-container">
+          <img src="/images/me-in-peru.jpg" alt="Me Hiking the Andes" />
+        </div>
+      </section>
+
+      <section class="get-to-know-me">
+        <h2>Get to Know Me Better...</h2>
+        <div class="dropdown-container">
+          <div class="dropdown">
+            <button class="dropdown-button">
+              Personal Background <span class="crab-know-me">🦀</span>
+            </button>
+            <div class="dropdown-content">
+              <p>
+                I grew up on small, island community off the south coast of my
+                island province of Newfoundland and Labrador, Canada. The
+                fishing industry was a very important part of everyone's lives
+                along with hunting. I often lobster potted, squid jigged and
+                fished with my father. I did not hunt but often had wild game
+                for meals if it wasn't seafood. We had our own garden with a
+                variety of home grown vegetables that we used until the
+                following year's harvest.<br /><br />
+                I had a very simple childhood filled with love, laughter and
+                happiness. I was wealthy in a very different way than most
+                people would percieve having wealth to be. The ocean and all
+                it's special gifts, my grandparents, my aunts and uncles,
+                friends, and of course my parents were my entire world.I could
+                not have asked for a better childhood and it certainly helped
+                shape the woman I grew into.
+              </p>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropdown-button">
+              Educational Background <span class="crab-know-me">🦀</span>
+            </button>
+            <div class="dropdown-content">
+              <p>
+                I always enoyed school and learning as a child that continued
+                into my adulthood. My highschool granted me an entrance
+                scholarship to my University/College of choice upon graduation
+                which started my journey into the big, wide world. Some of my
+                education includes.
+              </p>
+              <ul>
+                <li>
+                  Memorial University(St. John's, NL, Canada) - Pre-Bachelor
+                  Studies in Science
+                </li>
+                <li>
+                  College of the North Atlantic(Affiliate of Memorial
+                  Univeristy, St.John's Canada) - Tourism and Hospitality
+                  Management
+                </li>
+                <li>
+                  British Columbia Institute of Technology(British Columbia,
+                  Canada) - Front End Web Deleopment and Graphic Design
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropdown-button">
+              Work Background <span class="crab-know-me">🦀</span>
+            </button>
+            <div class="dropdown-content">
+              <p>
+                Throughout my studies I became involved in the hospitality
+                industry which helped pay for my schooling, travel, and living
+                expenses. Eventually I entered into supervision, management, and
+                other leadership roles. Jobs were always plentiful in the
+                service industry so ultimately it's where I stayed and moved up
+                in my positions. Over the years I trained in other areas to
+                explore my options including:
+              </p>
+              <ul>
+                <li>Bookkeeping</li>
+                <li>Secretarial</li>
+                <li>Magazine Editing</li>
+                <li>Construction and Renovations</li>
+                <li>Benefits Administrator (LLQP Certified)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropdown-button">
+              Interests and Goals <span class="crab-know-me">🦀</span>
+            </button>
+            <div class="dropdown-content">
+              <p>
+                Travel has been a fascination of mine since a young child. I was
+                often exposed to programs such as National Geographic, History
+                Channel, and Discovery channel heightening my passion for things
+                like travel, space exploration, ancient cultures and
+                civilizations, nature and wildlife, and photography. Traveling
+                to western Canada in my early 20's gave me access to the Rocky
+                Mountains and that's when I fell in love with hiking. Since then
+                I've hiked mountains in Asia, North America, and South America
+                while currently planning for Africa, Europe, and New Zealand.
+                Dian Fossey has been a heroine of mine since a child and peaked
+                my interest in conservation and wildlife preservation. My
+                acceptance into a habitat and wildlife conservation program on
+                Madagascar Island in Africa will be one of the major highlights
+                of my Africa trip. My roots will always bring me back to the
+                love of the aquatic world - my truest happy place - where I will
+                continue to love fishing, kayaking, iceberg and whale watching,
+                swimming, and boating.<br />Becoming a skilled, professional Web
+                Developer and Graphic Designer while working remotely is my long
+                term goal. This industry is the opportunity of a lifetime to
+                live my life doing all the things I love while helping
+                companies, businesses, organizations and entrepreneurs build
+                beautiful websites from the comfort of wherever I live or travel
+                to. Being able give back to the world helping worthy causes and
+                organizations is also very important to me so designing or
+                re-creating websites for such cause would also be a very
+                important goal for me to achieve.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="lets-connect-about">
+        <h2>
+          <a href="#contact-page" Lets Connect>Let's Connect</a>
+          <span class="plug-icon-about">🔌</span>
+        </h2>
+      </section>
+
+      <!-- Contact Section -->
+
+      <section id="contact-page" class="contact-me">
+        <h2 class="contact-h2">
+          <span class="gradient-text">Contact Me</span>
+          <span class="contact-emoge">📧 </span>
+        </h2>
+        <p class="contact-p">
+          Welcome to my Contact Page. I look forward to working together and
+          making your dreams and visions become your realities!
+        </p>
+
+        <div class="contact-links">
+          <a href="https://facebook.com">
+            <img src="/images/facebook-logo.png" alt="Facebook" />
+          </a>
+          <a href="https://www.github.com">
+            <img src="/images/github-logo.avif" alt="GitHub" />
+          </a>
+          <a href="https://linkedin.com">
+            <img
+              class="linked-in"
+              src="/images/linkedin-logo.jpg"
+              alt="LinkedIn"
+            />
+          </a>
+        </div>
+      </section>
+
+      <section class="contact-info">
+        <a href="stephaniehillier4@gmail.com"
+          ><span class="email">Email: stephaniehillier4@gmail.com</span></a
+        >
+        <p>Phone: (709)769-4071</p>
+      </section>
+
+      <div class="contact-container">
+        <section class="address-container">
+          <address>
+            Stephanie Hillier<br />6B Sheppard's Place<br />Shoal Harbour, NL<br />A0E2C0
+          </address>
+        </section>
+
+    </main>
+  </body>
+
+  <footer>
+    <div class="footer-container">
+      <nav>
+        <ul class="footer-links">
+          <li><a href="www.facebook.com">Facebook</a></li>
+          <li><a href="www.github.com">GitHub</a></li>
+          <li><a href="www.linkedin">LinkedIn</a></li>
+          <li><a href="#contact-page">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="copyright">&copy;AtlanticaDesigns 2024</p>
+  </footer>
+</html>

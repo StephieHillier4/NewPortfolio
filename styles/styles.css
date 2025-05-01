@@ -1,0 +1,1940 @@
+@font-face {
+    font-family: "california";
+    src: url(/Fonts/californian-fb.ttf);
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%; /* Ensure the height covers the entire viewport */
+    background-color: black; /* Sets background color to black */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    font-family: "california", serif;
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+
+
+body {
+    position: relative;
+    color: white;
+}
+
+.trail-element {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle, 
+      rgba(255, 255, 255, 1) 0%, 
+      rgba(255, 255, 255, 0.5) 50%, 
+      rgba(255, 255, 255, 0) 100%);
+  opacity: 0;
+  transition: transform 0.2s ease, opacity 0.5s ease;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8), 
+              0px 0px 20px rgba(169, 3, 3, 0.6), 
+              0px 0px 30px rgba(60, 164, 164, 0.4);
+}
+
+/* Navigation container at the top of the page */
+.nav-container {
+    position: fixed; /* Keeps the header fixed at the top */
+    top: 0; /* Positions it at the very top */
+    width: 100%; /* Full width of the screen */
+    background-color: black; /* Black background */
+    display: flex; /* Aligns items horizontally */
+    align-items: center; /* Centers items vertically */
+    justify-content: space-between; /* Logo on left, crab on right */
+    padding: 10px 20px; /* Adds spacing inside the header */
+    border-bottom: 1px solid #3ca4a4; /* Teal border */
+    z-index: 1000; /* Ensures it stays above other content */
+  }
+  
+  /* Logo styling */
+  .logo {
+    height: 50px; /* Adjust as needed for logo size */
+    max-width: 100%; /* Ensures logo is responsive */
+  }
+  
+  /* Crab emoji (toggle menu) styling */
+  .crab-menu {
+    font-size: 2em; /* Makes the emoji larger */
+    position: fixed; /* Fixes crab independently at the top */
+    top: 10px; /* Ensures it stays visible at the top */
+    right: 20px; /* Positions it on the far right */
+    z-index: 1001; /* Ensures crab stays above other elements */
+    cursor: pointer; /* Makes the crab emoji clickable */
+    transition: transform 0.3s ease-in-out; /* Adds animation when clicked */
+  }
+  
+  /* Sliding nav menu styles */
+  #nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Initially off-screen completely */
+    width: 250px; /* Adjust width as needed */
+    height: 100vh; /* Full screen height */
+    background-color: black; /* Black background */
+    backdrop-filter: blur(5px); /* Blurs the background behind the menu */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-left: 4px solid rgb(169, 3, 3); /* Teal border on the left side */
+    transition: right 0.7s ease-out; /* Smooth transition for sliding */
+    z-index: 9999; /* Ensures menu is on top */
+  }
+  
+  /* Open the nav menu */
+  #nav-menu.opened {
+    right: 0; /* Slides the menu in */
+  }
+  
+  /* Style for each list item in the nav menu */
+  #nav-menu li {
+    padding: 20px;
+    list-style: none;
+    text-align: center;
+  }
+  
+  /* Style for the links in the nav menu */
+  #nav-menu li a {
+    display: inline-block;
+    margin: 0 8px;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white; /* White text color */
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease-in-out; /* Smooth color transition */
+  }
+  
+  /* Underline effect for the links */
+  #nav-menu li a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 0%;
+    height: 60%;
+    background: linear-gradient(
+      90deg,
+      #3ca4a4, /* Gradient start */
+      white 30%, /* White section */
+      rgb(169, 3, 3) 50%, /* Red section in the middle */
+      white 70%, /* White section */
+      #3ca4a4 /* Gradient end */
+    );
+    border-radius: 50px; /* Rounded corners for the underline */
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out; /* Smooth transition for underline expansion */
+    transform: translate(-50%, -50%); /* Centers the underline */
+    z-index: -1; /* Keeps the underline behind the text */
+  }
+  
+  /* Hover effect: underline expands and link color changes */
+  #nav-menu li a:hover::after {
+    width: 80%; /* Expands the underline */
+    left: 50%; /* Keeps the underline centered */
+  }
+  
+  #nav-menu li a:hover {
+    color: black; /* Change text color to black on hover */
+  }
+  
+
+  /* NAV MENU STYLES (700px and up) */
+@media (min-width: 700px) {
+  .crab-menu {
+    display: none;
+  }
+
+  .nav-container {
+    justify-content: center; /* centers everything in the nav */
+    padding: 0 10px;
+    gap: 20px; /* optional: space between logo and nav links */
+  }
+
+  #nav-menu {
+    position: static;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: transparent;
+    border-left: none;
+    backdrop-filter: none;
+    transition: none;
+  }
+
+  #nav-menu li {
+    padding: 0;
+    margin-left: -1em;
+  }
+
+  #nav-menu li a {
+    font-size: 16px;
+  }
+
+  .logo {
+    height: 50px;
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 1100px) {
+  
+/* Navigation container styling */
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+  max-width: 100%; /* Ensure it doesn't exceed screen width */
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/* Styling the logo */
+.logo {
+  height: 50px;
+  max-width: 100%; /* Ensures the logo is responsive */
+}
+
+/* Navigation list styling */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+/* Navigation links styling */
+.nav-links a {
+  position: relative;
+  text-decoration: none; /* Removes underline from links */
+  color: white; /* Sets text color to white */
+  font-weight: bold;
+  padding: 10px 20px;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Hover effect for links */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0%;
+  height: 80%;
+  background: linear-gradient(90deg, 
+  #3ca4a4,  /* Teal start */
+  white 30%, /* White blend */
+  rgb(169, 3, 3) 50%, /* Deep red accent */
+  white 70%, /* White blend again */
+  #3ca4a4  /* Baby blue finish */
+);
+  border-radius: 50px;
+  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.nav-links a:hover::after {
+  width: 110%; /* Expands the background on hover */
+  left: 50%;
+}
+
+.nav-links a:hover {
+  z-index: 1;
+  color: black;
+}
+
+button {
+  display: none; /* Hide on desktop */
+}
+}
+
+
+/* HOME PAGE */
+.page-title {
+  position: relative;
+  width: 80%;
+  max-width: 1200px;
+  margin: 80px auto 20px;
+  display: grid;
+  justify-content: center; /* Centers everything horizontally */
+  text-align: left;
+  background: linear-gradient(90deg, 
+  #3ca4a4 0%,   /* Teal start */
+  #3ca4a4 30%,
+  rgb(169, 3, 3) 55%,  /* Green continues for half */
+  white 60%,    /* Small amount of white */ /* Deep red accent */
+  #3ca4a4 80%,  /* Green again */
+  #3ca4a4 100%  /* Baby blue finish */
+  
+);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  scroll-margin-top: 100px;
+}
+
+.page-title h1 { 
+  margin: 5px 0;
+}
+
+.page-title h2 {
+  margin-bottom: 0;
+  justify-self: start; /* Aligns to the left of h1 */
+  font-size: 40px;
+}
+
+.page-title p {
+  margin-top: 5px;
+  justify-self: end; /* Aligns to the right of h1 */
+  font-size: 25px;
+}
+
+/* Main Section */
+
+.page-title {
+    background: linear-gradient(90deg, 
+    #3ca4a4 0%,   /* Teal start */
+    #3ca4a4 30%,
+    rgb(169, 3, 3) 55%,  /* Green continues for half */
+    white 60%,    /* Small amount of white */ /* Deep red accent */
+    #3ca4a4 80%,  /* Green again */
+    #3ca4a4 100%  /* Baby blue finish */
+    
+);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    scroll-margin-top: 100px;
+    margin-top: 7em;
+    margin-bottom: 5em;
+    padding-left: 1em;
+    width: fit-content;
+}
+
+h1 {
+    font-family: "Antonio", sans-serif;
+    font-size: 3em;
+    margin-top: -0.5em;
+    margin-bottom: -0.2em;
+}
+
+h1 span {
+    display: block; /* Forces each span onto a new line */
+}
+
+
+@media (min-width: 700px) {
+    .page-title {
+        position: relative;
+        width: 80%;
+        max-width: 1200px;
+        margin: 80px auto 40px;
+        display: grid;
+        justify-content: center; /* Centers everything horizontally */
+        text-align: left;
+        background: linear-gradient(90deg, 
+        #3ca4a4 0%,   /* Teal start */
+        #3ca4a4 30%,
+        rgb(169, 3, 3) 55%,  /* Green continues for half */
+        white 60%,    /* Small amount of white */ /* Deep red accent */
+        #3ca4a4 80%,  /* Green again */
+        #3ca4a4 100%  /* Baby blue finish */
+        
+    );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        scroll-margin-top: 100px;
+    }
+    
+    .page-title h1 { 
+        margin: 5px 0;
+        justify-self: flex-start; /* Ensures name stays centered */
+    }
+    
+    h1 span {
+        display: inline; /* Makes each span behave like an inline element */
+        margin-right: 10px; /* Adds spacing between words */
+    }
+
+    .page-title h2 {
+        margin-bottom: 0;
+        justify-self: start; /* Aligns to the left of h1 */
+        font-size: 30px;
+    }
+    
+    .page-title p {
+        margin-top: 5px;
+        justify-self: end; /* Aligns to the right of h1 */
+        font-size: 25px;
+    }
+    
+  }
+  
+  
+
+.text-container {
+    display: flex;               /* Flexbox layout for centering */
+    flex-direction: column;      /* Stack items vertically */
+    justify-content: center;     /* Center the items vertically */
+    align-items: center;         /* Center the items horizontally */
+    text-align: center;          /* Center the text */
+    margin: 0 auto;              /* Auto margin to center the container */
+    max-width: 375px;            /* Set max-width for larger screens */
+    width: 100%;                 /* Allow it to scale to smaller screens */
+    padding: 0 1em;              /* Padding on left and right */
+    box-sizing: border-box;      /* Include padding in the width */
+  }
+  
+  .text-container h2, .text-container p {
+    margin-bottom: 1em;                   /* Remove default margins */
+    width: 100%;                 /* Make sure they take up the full width */
+    box-sizing: border-box;      /* Ensure padding is accounted for in width */
+    padding: 0;                  /* Remove any extra padding */
+  }
+  
+  .text-container p {
+    line-height: 1.5;            /* Adjust line height for readability */
+  }
+
+  .text-container h2 {
+    margin-top: -2.5em;
+  }
+  
+
+  .job-title {
+    background: linear-gradient(90deg, 
+    #3ca4a4 0%,   /* Teal start */
+    #3ca4a4 30%,
+    rgb(169, 3, 3) 55%,  /* Green continues for half */
+    white 60%,    /* Small amount of white */ /* Deep red accent */
+    #3ca4a4 80%,  /* Green again */
+    #3ca4a4 100%  /* Baby blue finish */
+    
+);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .website {
+    color:rgba(8, 243, 243, 0.4)
+  }
+
+  .vid-container {
+    display: flex;
+    justify-content: center; /* Horizontally center the video */
+    margin-top: 2em;
+    margin-bottom: 3em;
+  }
+
+  .vid-container video {
+    max-width: 500px;
+    width: 350px;
+    height: auto;
+    border: 2px solid rgb(169, 3, 3);
+  }
+
+  @media (min-width: 700px) {
+    .vid-container {
+      display: flex;
+      justify-content: center; /* Horizontally center the video */
+      margin-top: 2em;
+      margin-bottom: 3em;
+    }
+  
+    .vid-container video {
+      max-width: 600px;
+      height: auto;
+      border: 2px solid rgb(169, 3, 3);
+    }
+
+    .text-container h2 {
+      margin-top: 1em;
+    }
+  }
+
+  @media (min-width: 900px) {
+    .vid-container video {
+      max-width: 600px;
+      width: 600px;
+    }
+    .text-container {
+      width: 500px;
+      max-width: 600px;
+    }
+  }
+  
+  
+  @media (min-width: 1100px) {
+    /* Main container holding both text and video */
+    .content-container {
+      display: flex;
+      align-items: center;
+      justify-content: center; /* Center the content horizontally */
+      position: relative;
+      max-width: 1100px; /* Keep max-width for overall alignment */
+      margin: 80px auto;
+    }
+
+  
+    /* Text container: Increase the width and ensure the teal border spans */
+    .text-container {
+      background-color: black;
+      width: 800px; /* Make the text container wider */
+      min-height: 400px;
+      padding-right: 20em;
+      max-width: 1100px; /* Max width for the container */
+      border: 2px solid #3ca4a4; /* Teal border */
+      border-left: 5px solid #3ca4a4; /* Thicker left border */
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      position: relative;
+      left: 10em;
+      box-sizing: border-box;
+    }
+
+    .text-container h2 {
+      margin-top: -0.5em;
+      margin-bottom: 1em;
+    }
+
+    .text-container p {
+      width: 400px;
+      max-width: 400px;
+      line-height: 2;
+    }
+  
+    /* Job title with gradient text */
+    .job-title {
+      background: linear-gradient(90deg, 
+        #3ca4a4, 
+        white 40%, 
+        rgb(169, 3, 3) 50%, 
+        white 60%, 
+        #3ca4a4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+    }
+  
+    /* Video container: Position it to the left and overlap the text container */
+    .vid-container {
+      position: relative;
+      left: -8em; /* Move the video to the left to overlap the text container */
+      z-index: 3; /* Make sure the video is above the text container */
+    }
+  
+    /* Video styling */
+    .vid-container video {
+      width: 600px;
+      max-width: 1000px; /* Keeps video size reasonable */
+      height: 360px;
+      object-fit: cover; /* Ensures the video covers the container */
+      border: 2px solid rgb(113, 2, 2); /* Border around the video */
+      margin-top: 1em;
+    }
+  }
+  
+  
+/* WORKS/ABOUT CONTAINERS HOME PAGE */
+/* Outer Container Styling */
+.nav-wrapper {
+    background-color: black; /* Black background for the outer container */
+    padding: 0; /* Reduce padding to make the border closer to content */
+    width: 90%;
+    margin: 0 auto; /* Center the container horizontally */
+}
+  
+  
+   /* Section Styling */
+  .nav-pages, .nav-about-page {
+  
+    padding: 10px; /* Adds spacing inside each section */
+    text-align: center; /* Centers the titles */
+    margin-bottom: 5em; /* Space between sections */
+    width: 90%; /* Makes the section narrower */
+    /* height: 175px;  */
+    margin-left: auto; /* Centers horizontally */
+    margin-right: auto; /* Centers horizontally */
+    position: relative; /* Needed for image overlapping */
+  }
+
+
+  .nav-pages {
+    margin-top: 3em;
+  }
+
+  .card-wrapper {
+    border: 3px solid teal;
+    width: 100%;
+    height: 100%;
+    max-width: 300px;
+  }
+
+  .red-bg {
+    width: 60%;
+    height: 225px;
+    background: black;
+    position: absolute;
+    top: -2rem;
+    box-shadow: inset 0 0 80px red;
+  }
+  
+  
+  /* Image Container Styling */
+  .nav-pages div, .nav-about-page div {
+    display: inline-block; /* Allows images to sit side by side */
+    position: relative; /* Needed for fanned-out effect and overlap */
+  }
+  
+  /* Image Styling (Fixed Width and Height) */
+  .nav-pages img, .nav-about-page img {
+    width: 100px; /* Set fixed width for all images */
+    height: 150px; /* Set fixed height for all images */
+    object-fit: cover; /* Ensures images fill the specified dimensions without distortion */
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3); /* Adds depth with shadow */
+    position: absolute; /* Allows overlapping of images outside the red container */
+  }
+
+  
+  /* Fanned-Out Effect (Rotation) - Works Section */
+  /* Rotations remain untouched as per your request */
+  .movie-page img {
+    transform: rotate(-10deg); /* Tilt left */
+    top: -5px; /* Move further up to overlap more at the top of the red container */
+    left: -8em; /* Overlap left side of red background */
+  }
+  
+  .country-page img {
+    transform: rotate(0deg); /* Center image stays flat */
+    top: -10px; /* Move further up to overlap more at the top of the red container */
+    right: -3em;
+    z-index: 10;
+  }
+  
+  .trivia-page img {
+    transform: rotate(10deg); /* Tilt right */
+    top: -5px; /* Move further up to overlap more at the top of the red container */
+    right: -7em; /* Overlap right side of red background */
+  }
+  
+  /* Fanned-Out Effect (Rotation) - About Section */
+  /* Rotations remain untouched as per your request */
+  .nl-page img {
+    transform: rotate(-10deg); /* Tilt left for second section */
+    top: -0.2em; /* Move further up to overlap more at the top of the red container */
+    left: -8em;
+  }
+  
+  .about-me-page img {
+    transform: rotate(0deg); /* Center image stays flat for second section */
+    top: -0.5em; /* Move further up to overlap more at the top of the red container */
+    right: -3em;
+    z-index: 10;
+  }
+  
+  .kayaking-page img {
+    transform: rotate(10deg); /* Tilt right for second section */
+    top: -0.2em;/* Move further up to overlap more at the top of the red container */
+    right: -7em; 
+  }
+  
+  /* Titles Under Images (h1) */
+  .title-works, .title-about-me {
+      /* margin-top: calc(150px + 20px); */
+      font-size: 1.2em; /* Adjust font size for mobile screens */
+      color: white; /* White text for contrast on black background */
+      position: relative;
+  }
+
+  /* Gradient Text Styling for Titles */
+.title-works, .title-about-me {
+    font-size: 1.5em; /* Adjust font size as needed */
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(
+      90deg,
+      #3ca4a4 0%,   /* Teal start */
+      #3ca4a4 30%,
+      rgb(169, 3, 3) 55%,  /* Deep red accent */
+      white 60%,    /* Small amount of white */
+      #3ca4a4 80%,  /* Teal again */
+      #3ca4a4 100%  /* Teal finish */
+    );
+    -webkit-background-clip: text; /* Clips the gradient to the text */
+    -webkit-text-fill-color: transparent; /* Makes the text transparent to show the gradient */
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .title-works:hover, .title-about-me:hover {
+    transform: scale(1.2); /* Enlarges text by 20% */
+  }
+
+  @media (min-width: 1100px) {
+    .content-container{
+      margin-bottom: 10em;
+    }
+    /* Make sections behave like table cells with fixed widths */
+    .nav-pages, .nav-about-page {
+      display: table-cell;
+      width: 450px; /* Exactly half of the wrapper width */
+      max-width: 450px;
+      padding: 10px;
+      margin: 0; /* Remove margins */
+      vertical-align: top;
+    }
+    
+    .card-wrapper {
+      width: 400px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  
+    .red-bg {
+      width: 300px;
+      max-width: 300px;
+      height: 350px;
+    }
+
+   /* Image Styling (Fixed Width and Height) */
+   .nav-pages img, .nav-about-page img {
+    width: 200px; /* Set fixed width for all images */
+    height: 250px; /* Set fixed height for all images */
+    object-fit: cover; /* Ensures images fill the specified dimensions without distortion */
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3); /* Adds depth with shadow */
+    position: absolute; /* Allows overlapping of images outside the red container */
+  }
+
+  
+  /* Fanned-Out Effect (Rotation) - Works Section */
+  /* Rotations remain untouched as per your request */
+  .movie-page img {
+    transform: rotate(-10deg); /* Tilt left */
+    top: -5px; /* Move further up to overlap more at the top of the red container */
+    left: -11em; /* Overlap left side of red background */
+  }
+  
+  .country-page img {
+    transform: rotate(0deg); /* Center image stays flat */
+    top: -10px; /* Move further up to overlap more at the top of the red container */
+    right: -6.5em;
+    z-index: 10;
+  }
+  
+  .trivia-page img {
+    transform: rotate(10deg); /* Tilt right */
+    top: -5px; /* Move further up to overlap more at the top of the red container */
+    right: -12em; /* Overlap right side of red background */
+  }
+  
+  /* Fanned-Out Effect (Rotation) - About Section */
+  /* Rotations remain untouched as per your request */
+  .nl-page img {
+    transform: rotate(-10deg); /* Tilt left for second section */
+    top: -0.2em; /* Move further up to overlap more at the top of the red container */
+    left: -11em;
+  }
+  
+  .about-me-page img {
+    transform: rotate(0deg); /* Center image stays flat for second section */
+    top: -0.5em; /* Move further up to overlap more at the top of the red container */
+    right: -6.5em;
+    z-index: 10;
+  }
+  
+  .kayaking-page img {
+    transform: rotate(10deg); /* Tilt right for second section */
+    top: -0.2em;/* Move further up to overlap more at the top of the red container */
+    right: -12em; 
+  }
+
+  }
+  
+  .lets-connect {
+    background: linear-gradient(
+      90deg,
+      #3ca4a4 0%,   /* Teal start */
+      #3ca4a4 30%,
+      rgb(169, 3, 3) 55%,  /* Deep red accent */
+      white 60%,    /* Small amount of white */
+      #3ca4a4 80%,  /* Teal again */
+      #3ca4a4 100%  /* Teal finish */
+    );
+    -webkit-background-clip: text; /* Clips the gradient to the text */
+    -webkit-text-fill-color: transparent; /* Makes the text transparent to show the gradient */
+    margin-top: 6em;
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.lets-connect:hover {
+  transform: scale(1.1); /* Slightly enlarges the text */
+}
+  
+.lets-connect h2 {
+    font-size: 1.5em; /* Adjust font size for mobile */
+    text-align: center;
+    
+}
+  
+.plug-icon {
+    font-size: 1.2em; /* Adjust icon size */
+}
+
+@media (min-width: 1100px) {
+  /* Wrapper to hold both sections side by side */
+  .nav-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 5em;
+    margin-top: 5em;
+    max-width: 1400px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+  }
+  
+  .nav-pages,
+  .nav-about-page {
+    width: 100%;
+    max-width: 600px;
+    margin: 0; /* remove any accidental offset */
+    position: relative; /* ensure they're flowing inside flex */
+  }
+  
+  }
+
+  /* WORKS SECTION */
+
+  .works {
+    margin-top: 20em;
+  }
+
+  /* Gradient Text Styling for Title */
+.gradient-text {
+    background: linear-gradient(
+      90deg,
+      #3ca4a4 0%,   /* Teal start */
+      #3ca4a4 30%,
+      rgb(169, 3, 3) 55%,  /* Deep red accent */
+      white 60%,    /* Small amount of white */
+      #3ca4a4 80%,  /* Teal again */
+      #3ca4a4 100%  /* Teal finish */
+    );
+    -webkit-background-clip: text; /* Clips the gradient to the text */
+    -webkit-text-fill-color: transparent; /* Makes the text transparent to show the gradient */
+  }
+  
+  /* Emoji Styling */
+  .palette-emoge {
+    font-size: 1em; /* Slightly smaller than the title */
+    display: inline-block; /* Ensures it aligns with the title span */
+  }
+  
+  /* Works H2 Styling */
+  .works-h2 {
+    font-size: 2em; /* Adjust font size for emphasis */
+    font-weight: bold;
+    text-align: center; /* Center the title */
+    font-family: "Antonio", sans-serif;
+  }
+  
+  /* Paragraph Styling (Optional) */
+  .works-p {
+    text-align: center; /* Centers the paragraph text below the title */
+    font-size: 1em; /* Standard readable size for mobile screens */
+    padding: 0 5px;
+    margin-bottom: 5em;
+    margin-top: -1em;
+    max-width: 450px;
+    margin-left: auto;  /* Centers horizontally */
+    margin-right: auto; 
+    
+  }
+
+  @media (min-width: 1100px) {
+    .works-h2 {
+      font-size: 3em;
+    }
+    .works-p {
+      font-size: 1.5em;
+      max-width: 600px;
+    }
+  }
+  
+
+/* Outer container */
+.work-item.movie-db {
+    border: 2px solid teal;
+    width: 80%;
+    max-width: 300px;
+    margin: 40px auto 0 auto; /* 👈 THIS pushes the whole box down slightly */
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+    background-color: transparent;
+    overflow: visible;
+    text-align: center;
+
+  }
+  
+  /* Inner red box (move it above the teal border without breaking anything) */
+  .work-item.movie-db::before {
+    content: "";
+    display: block;
+    background-color: red;
+    height: 250px;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: -60px; /* Pulls the red box upward above the border */
+    position: relative;  /* Keep the position relative */
+    z-index: 1;
+  }
+  
+  /* Image inside the red box */
+  .work-item.movie-db img {
+    position: relative;
+    z-index: 2;
+    display: block;
+    max-width: 150px;
+    height: 200px;
+    margin: -13.5em auto 10px auto; /* Keeps the image in the red box */
+    box-shadow: 0 0 10px 15px rgba(0, 0, 0, 0.95);
+  }
+  
+  
+  /* Center the p tag under the red box */
+  .work-item p {
+    text-align: center;
+    margin-top: 30px;
+    color: #3ca4a4;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+
+  /* Shared styles for both links */
+  .work-item a {
+  display: inline-block;
+  margin: 0 8px;
+  padding: 0 15px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease-in-out;
+}
+
+.work-item a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0%;
+  height: 60%;
+  background: linear-gradient(
+    90deg,
+    #3ca4a4,
+    white 30%,
+    rgb(169, 3, 3) 50%,
+    white 70%,
+    #3ca4a4
+  );
+  border-radius: 50px;
+  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.work-item a:hover::after {
+  width: 80%;
+  left: 50%;
+}
+
+.work-item a:hover {
+  color: black;
+}
+
+/* Outer container for each work item */
+.work-item.trivia-game,
+.work-item.school-site,
+.work-item.vancouver-site,
+.work-item.online-stores,
+.work-item.country-site {
+  border: 2px solid teal; /* Teal border */
+  width: 80%;
+  max-width: 300px;
+  margin: 40px auto 0 auto; /* Pushed down slightly */
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+  background-color: transparent;
+  overflow: visible;
+  text-align: center; /* Ensures text and links are centered */
+}
+
+
+/* Inner red box, positioned above the teal border */
+.work-item.trivia-game::before,
+.work-item.school-site::before,
+.work-item.vancouver-site::before,
+.work-item.online-stores::before,
+.work-item.country-site::before {
+  content: "";
+  display: block;
+  background-color: rgb(169, 3, 3);
+  height: 250px; /* Height of the red box changed to 310px */
+  width: 70%;
+  margin: 0 auto;
+  margin-top: -60px; /* Moves the red box up above the border */
+  position: relative;
+  z-index: 1;
+}
+
+/* Image inside the red box */
+.work-item.trivia-game img,
+.work-item.school-site img,
+.work-item.vancouver-site img,
+.work-item.online-stores img,
+.work-item.country-site img {
+  position: relative;
+  z-index: 2; /* Ensures the image is on top of the red box */
+  display: block;
+  max-width: 150px; /* Image width */
+  height: 200px; /* Image height */
+  margin: -13.5em auto 10px auto; /* Keeps image centered inside the red box */
+  box-shadow: 0 0 10px 15px rgba(0, 0, 0, 0.95); /* Shadow effect updated as requested */
+}
+
+/* Center the text under the red box */
+.work-item.trivia-game p,
+.work-item.school-site p,
+.work-item.vancouver-site p,
+.work-item.online-stores p,
+.work-item.country-site p {
+  text-align: center;
+  margin-top: 30px;
+  color: #3ca4a4;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Links under the red box */
+.work-item.trivia-game a,
+.work-item.school-site a,
+.work-item.vancouver-site a,
+.work-item.online-stores a,
+.work-item.country-site a {
+    display: inline-block;
+    margin: 0 8px;
+    padding: 0 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease-in-out;
+}
+
+
+
+
+/* Development Tools text with gradient */
+.tools-toggle .tools-text {
+    display: inline-block;
+    font-size: 21px;
+    font-weight: bold;
+    color: white;  /* Default text color */
+    padding: 10px;
+    background: linear-gradient(90deg, 
+      #3ca4a4,  /* Teal start */
+      white 30%, /* White blend */
+      rgb(169, 3, 3) 50%, /* Deep red accent */
+      white 70%, /* White blend again */
+      #3ca4a4  /* Teal finish */
+    );
+    -webkit-background-clip: text; /* Clips the gradient to the text */
+    -webkit-text-fill-color: transparent; /* Makes the text transparent to show the gradient */
+  }
+
+  .tools-toggle {
+    cursor: pointer;
+  }
+
+/* Crab emoji (rotation on click) */
+.crab {
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out; /* Smooth transform for when clicked */
+}
+
+/* Initially hide the dropdown */
+.tools-dropdown {
+    display: none; /* Hidden by default */
+    list-style: none; /* No bullets */
+    padding: 10px; /* Padding inside the dropdown */
+    margin: 0;
+    position: absolute; /* Position dropdown below the crab */
+    left: 50%; /* Center it horizontally */
+    transform: translateX(-50%); /* Correct positioning by centering */
+    background-color: black; /* Black background for the dropdown */
+    border: 2px solid teal; /* Teal border around the dropdown */
+    border-radius: 5px; /* Optional: Adds rounded corners */
+    z-index: 10; /* Ensure the dropdown is above other elements */
+    animation: cascade 0.5s ease-in-out forwards; /* Cascading animation */
+    max-height: 300px; /* Set a max height for scrolling */
+    overflow-y: auto;  /* Enable scrolling if necessary */
+    min-height: 40px;  /* Prevent collapsing too small */
+}
+
+/* Show the dropdown when the parent has the "active" class */
+.work-item.active .tools-dropdown {
+    display: block; /* Show the dropdown when "active" */
+    z-index: 10;
+}
+
+/* Dropdown items style */
+.tools-dropdown li {
+    font-size: 14px;
+    padding: 5px 0;
+    color: white; /* White text for visibility */
+    z-index: 10;
+}
+
+.tools-toggle.active .tools-dropdown {
+    display: block;
+  }
+
+/* Crab emoji (rotate when clicked) */
+.crab.open {
+    transform: rotate(180deg); /* Rotate the crab when the dropdown is open */
+}
+
+/* Animation for cascading dropdown */
+@keyframes cascade {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px); /* Start slightly above */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End at normal position */
+    }
+}
+
+/* Parent container should allow overflow */
+.work-item {
+    position: relative; /* Make sure dropdown is positioned correctly */
+    overflow: visible;  /* Allow dropdown to extend beyond parent */
+}
+
+
+/* CAROUSEL */
+
+/* Container for the carousel navigation */
+.carousel-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px; /* Adds spacing below the work items */
+  }
+  
+  /* Styling for the arrows in the carousel */
+  .carousel-arrow {
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #ffffff; /* Adjust the color to fit your theme */
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .carousel-arrow:hover {
+    color: #008080; /* Adjust color on hover */
+  }
+  
+  /* Styling for the text next to the arrows */
+  .carousel-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff; /* Adjust text color */
+  }
+  
+  /* Ensure the arrows and text are centered below the work items */
+  .carousel-window {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Hide all work items by default */
+.work-item {
+    /* display: none; */
+    width: 100%;
+  }
+  
+  /* Show the first work item */
+  .work-item:first-of-type {
+    /* display: block; */
+  }
+
+  @media (min-width: 1200px) {
+    .works-container {
+      display: flex;
+      flex-wrap: wrap;
+      row-gap: 8rem;
+      max-width: 1000px;
+      margin: 0 auto 8em;
+      }
+      .carousel-text {
+        display: none;
+    }
+  }
+  
+  /* Styling for the carousel arrows and text */
+  .carousel-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .carousel-arrow {
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #ffffff;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .carousel-arrow:hover {
+    color: #008080;
+  }
+  
+  .carousel-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+
+  
+/* WORKS VIDEO STYLING */
+
+.works-vid-container {
+    width: 100%;
+    max-width: 320px; /* Set a max-width smaller than 360px to leave space */
+    margin: 0 auto; /* Center the video */
+  }
+
+  @media (min-width: 700px){
+    .works-vid-container {
+      width: 100%;
+      max-width: 500px; /* Set a max-width smaller than 360px to leave space */
+      margin: 0 auto; /* Center the video */
+    }
+  
+  }
+
+  @media (min-width: 1300px){
+    .works-vid-container {
+      width: 100%;
+      width: 800px;
+      max-width: 800px; /* Set a max-width smaller than 360px to leave space */
+      margin: 0 auto; /* Center the video */
+    }
+
+    .works-text {
+      font-size: 2rem;
+}
+  
+  }
+  
+  .video-wrapper {
+    width: 100%;
+    overflow: hidden; /* Ensure excess video content is hidden */
+  }
+  
+  video {
+    width: 100%; /* Scale the video to fit the container */
+    height: auto; /* Maintain the aspect ratio of the video */
+  }
+  
+  .works-video-p {
+    text-align: center; /* Center the text */
+    font-size: 1.5rem; /* Adjust font size for better visibility */
+    margin: 0 auto;
+    margin-top: 2em;
+    margin-bottom: 1em;
+  }
+  
+  .works-text {
+    background: linear-gradient(90deg, 
+      #3ca4a4,  /* Teal start */
+      white 30%, /* White blend */
+      rgb(169, 3, 3) 50%, /* Deep red accent */
+      white 70%, /* White blend again */
+      #3ca4a4  /* Teal finish */
+    );
+    -webkit-background-clip: text; /* Clips the gradient to the text */
+    -webkit-text-fill-color: transparent; /* Makes the text transparent to show the gradient */
+    ;
+    font-family: "Antonio", sans-serif;
+  }
+  
+  .works-video-p .emoji {
+    font-size: 1.5rem; /* Adjust emoji size if needed */
+    color: inherit; /* Ensures the emoji is unaffected */
+  }
+
+  .lets-connect-works {
+    background: linear-gradient(
+      90deg,
+      #3ca4a4 0%,   /* Teal start */
+      #3ca4a4 30%,
+      rgb(169, 3, 3) 55%,  /* Deep red accent */
+      white 60%,    /* Small amount of white */
+      #3ca4a4 80%,  /* Teal again */
+      #3ca4a4 100%  /* Teal finish */
+    );
+    -webkit-background-clip: text; /* Clips the gradient to the text */
+    -webkit-text-fill-color: transparent; /* Makes the text transparent to show the gradient */
+    margin-top: 6em;
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.lets-connect-works:hover {
+  transform: scale(1.1); /* Slightly enlarges the text */
+}
+  
+  .lets-connect-works h2 {
+    font-size: 1.5em; /* Adjust font size for mobile */
+    text-align: center;
+    
+  }
+  
+  .plug-icon {
+    font-size: 1.2em; /* Adjust icon size */
+  }
+
+
+  /* ABOUT SECTION */
+
+  .about-section {
+    margin-top: 20em;
+  }
+
+  .gradient-text-about {
+    background: linear-gradient(
+      90deg,
+      #3ca4a4 0%,   /* Teal start */
+      #3ca4a4 30%,
+      rgb(169, 3, 3) 55%,  /* Deep red accent */
+      white 60%,    /* Small amount of white */
+      #3ca4a4 80%,  /* Teal again */
+      #3ca4a4 100%  /* Teal finish */
+    );
+    -webkit-background-clip: text; /* Clips the gradient to the text */
+    -webkit-text-fill-color: transparent; /* Makes the text transparent to show the gradient */
+  }
+  
+  /* Emoji Styling */
+  .female-emoge {
+    font-size: 1.5em; /* Slightly smaller than the title */
+    display: inline-block; /* Ensures it aligns with the title span */
+    font-size: 1em;
+  }
+  
+  /* Works H2 Styling */
+  .about-h2 {
+    font-size: 2em; /* Adjust font size for emphasis */
+    font-weight: bold;
+    text-align: center; /* Center the title */
+    font-family: "Antonio", sans-serif;
+  }
+  
+  /* Paragraph Styling (Optional) */
+  .about-p {
+    text-align: center; /* Centers the paragraph text below the title */
+    font-size: 1em; /* Standard readable size for mobile screens */
+    padding: 0 5px;
+    margin-bottom: 5em;
+    margin-top: -1em;
+    max-width: 450px;
+    margin-left: auto;  /* Centers horizontally */
+    margin-right: auto; 
+    
+  }
+
+  @media (min-width: 1100px) {
+    .about-h2 {
+      font-size: 3em;
+    }
+    .about-p {
+      font-size: 1.5em;
+      max-width: 600px;
+    }
+  }
+  
+
+/* Main Section */
+
+.about-content-container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center content horizontally */
+  }
+  
+  .about-text-container {
+    text-align: center; /* Center-align text */
+    margin-bottom: 20px; /* Add spacing below the text */
+    margin-top: -2em;
+  }
+
+  .about-text-container h2 {
+    font-family: "Antonio", sans-serif;
+    max-width: 375px;
+  }
+
+  .about-text-container p {
+    padding: 0 1em;
+    line-height: 1.5;
+    max-width: 375px;
+  }
+
+  .about-img-container {
+    position: relative;
+    width: 95%;
+    max-width: 500px;
+    height: 300px;  /* Set your fixed height */
+    overflow: hidden;
+    margin-bottom: 5em;  /* Adds spacing below the image */
+    border: 2px solid rgb(169, 27, 44);
+    object-position: top;
+}
+
+.about-img-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;  /* Ensure the image takes up the entire height of the container */
+    object-fit: cover;  /* Cover the container, maintaining aspect ratio */
+    object-position: top;
+}
+
+@media (min-width: 1100px) {
+  /* Center the entire section on the page */
+  .about-content-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    max-width: 1100px;
+    margin: 80px auto;
+  }
+
+  /* Style the text container */
+  .about-text-container {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    width: 800px;
+    min-height: 400px;
+    border: 2px solid #3ca4a4;
+    border-left: 5px solid #3ca4a4;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* <- Ensures text stays left-aligned */
+    justify-content: flex-start;
+    text-align: left; /* <- Also keeps text aligned left */
+    box-sizing: border-box;
+    margin-left: 2em;
+    z-index: 1;
+  }
+
+  .about-text-container h2 {
+    display: block;
+    margin: 1em 0 1em 0.9em; /* <- Reset side margins, keep spacing between h2 and p */
+    text-align: left;
+  }
+
+  .about-text-container p {
+    font-size: 1.1em;
+    max-width: 400px;
+    line-height: 2;
+    margin: 0; /* <- Remove any default margin that might push things around */
+    text-align: left;
+  }
+
+  .job-title {
+    background: linear-gradient(90deg,
+      #3ca4a4,
+      white 40%,
+      rgb(169, 3, 3) 50%,
+      white 60%,
+      #3ca4a4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+  }
+
+  /* Position the image to the right, overlapping the teal border */
+  .about-img-container {
+    position: relative;
+    top: -25em;
+    left: 30em;
+    z-index: 2;
+    width: 600px;
+    max-width: 600px;
+    min-height: 350px;
+    object-position: top;
+   
+  }
+
+  .about-img-container img {
+    width: 600px;
+    max-width: 600px;        /* <- Slightly wider */
+    min-height: 350px;   /* <- Slightly taller */
+    object-fit: cover;
+    border: 2px solid rgb(113, 2, 2);
+    display: block;
+    position: absolute;
+    object-position: top;
+  }
+}
+
+
+.get-to-know-me {
+    text-align: center;         /* centers the text like your h2 */
+    margin: -4em auto 0;             /* centers the section itself */
+    padding: 20px;              /* optional spacing around it */
+    max-width: 360px;           /* optional - matches your mobile width */
+    width: 100%;                /* makes it responsive */
+    box-sizing: border-box;     /* makes padding play nice with width */
+  }
+
+  @media (min-width: 1100px) {
+    .get-to-know-me {
+      margin-top: -28em;
+      max-width: 540px;
+      width: 540px;
+    }
+
+    .get-to-know-me h2 {
+      font-size: 2em;
+    }
+
+  }
+  
+.get-to-know-me h2 {
+    background: linear-gradient(
+      90deg,
+      #3ca4a4 0%,   /* Teal start */
+      #3ca4a4 30%,
+      rgb(169, 3, 3) 55%,  /* Deep red accent */
+      white 60%,    /* Small amount of white */
+      #3ca4a4 80%,  /* Teal again */
+      #3ca4a4 100%  /* Teal finish */
+    );
+    -webkit-background-clip: text; /* Clips the gradient to the text */
+    -webkit-text-fill-color: transparent;
+    font-family: "Antonio", sans-serif;
+}
+
+.get-to-know-me h2
+/* Container holding all dropdowns */
+.dropdown-container {
+    width: 100%;
+    max-width: 360px; /* Mobile screen width */
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #000000;
+    color: white;
+    border: 1px solid rgb(169, 3, 3);
+    border-radius: 0;
+}
+
+
+/* Each dropdown item */
+.dropdown {
+    width: 100%;
+    margin: 20px 0;
+    text-align: center;
+}
+
+
+/* Dropdown button */
+.dropdown-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    background-color: #3ca4a4;
+    color: white;
+    border: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+@media (min-width: 1100px) {
+  .dropdown-button {
+    max-width: 500px;
+    width: 500px;
+  }
+}
+
+
+.dropdown-button:hover {
+    background-color: #169393;
+}
+
+/* Dropdown content */
+.dropdown-content {
+    margin-top: 10px;
+    padding: 15px;
+    background-color: #333;
+    color: white;
+    font-size: 14px;
+    text-align: left;
+    border: 1px solid #444;
+    display: none; /* Hidden by default */
+    transition: max-height 1s ease-out, opacity 1s ease-out;
+    opacity: 0;
+}
+
+  .dropdown-content.show {
+    display: block;
+    opacity: 1;
+  }
+
+/* Option items within the dropdown */
+.dropdown-content a {
+    color: #f0f0f0;
+    display: block;
+    padding: 8px 0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    color: #3ca4a4;
+}
+
+/* Small text for dropdown */
+.dropdown-content small {
+    display: block;
+    margin-top: 12px;
+    font-size: 12px;
+    color: #000000;
+}
+
+/* Crab Icon Styling */
+.crab-know-me {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    transition: transform 1s ease; /* Smooth rotation */
+}
+
+/* Crab rotation when dropdown is open */
+.crab-rotated {
+    transform: rotate(-180deg); /* Rotates crab by 180 degrees */
+}
+
+.lets-connect-about {
+    background: linear-gradient(
+      90deg,
+      #3ca4a4 0%,   /* Teal start */
+      #3ca4a4 30%,
+      rgb(169, 3, 3) 55%,  /* Deep red accent */
+      white 60%,    /* Small amount of white */
+      #3ca4a4 80%,  /* Teal again */
+      #3ca4a4 100%  /* Teal finish */
+    );
+    -webkit-background-clip: text; /* Clips the gradient to the text */
+    -webkit-text-fill-color: transparent; /* Makes the text transparent to show the gradient */
+    margin-top: 2em;
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.lets-connect-about:hover {
+  transform: scale(1.1); /* Slightly enlarges the text */
+}
+  
+  .lets-connect-about h2 {
+    font-size: 1.5em; /* Adjust font size for mobile */
+    text-align: center;
+    
+  }
+  
+  .plug-icon-about {
+    font-size: 1.2em; /* Adjust icon size */
+  }
+
+
+
+  /* CONTACT SECTION */
+
+  .contact-me {
+    margin-top: 20em;
+  }
+
+  .gradient-text-about {
+    background: linear-gradient(
+      90deg,
+      #3ca4a4 0%,   /* Teal start */
+      #3ca4a4 30%,
+      rgb(169, 3, 3) 55%,  /* Deep red accent */
+      white 60%,    /* Small amount of white */
+      #3ca4a4 80%,  /* Teal again */
+      #3ca4a4 100%  /* Teal finish */
+    );
+    -webkit-background-clip: text; /* Clips the gradient to the text */
+    -webkit-text-fill-color: transparent; /* Makes the text transparent to show the gradient */
+  }
+  
+  /* Emoji Styling */
+  .contact-emoge {
+    font-size: 1.5em; /* Slightly smaller than the title */
+    display: inline-block; /* Ensures it aligns with the title span */
+    font-size: 1em;
+  }
+  
+  /* Works H2 Styling */
+  .contact-h2 {
+    font-size: 2em; /* Adjust font size for emphasis */
+    font-weight: bold;
+    text-align: center; /* Center the title */
+    font-family: "Antonio", sans-serif;
+  }
+  
+  /* Paragraph Styling (Optional) */
+  .contact-p {
+    text-align: center; /* Centers the paragraph text below the title */
+    font-size: 1em; /* Standard readable size for mobile screens */
+    padding: 0 5px;
+    margin-bottom: 5em;
+    margin-top: -1em;
+    max-width: 450px;
+    margin-left: auto;  /* Centers horizontally */
+    margin-right: auto; 
+    
+  }
+
+  @media (min-width: 1100px) {
+    .contact-h2 {
+      font-size: 3em;
+    }
+    .contact-p {
+      font-size: 1.5em;
+      max-width: 600px;
+    }
+  }
+
+  /* Contact Links Row */
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: -40px 0 20px;
+    flex-wrap: wrap;
+  }
+  
+  .contact-links a img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    background-color: #3ca4a4;
+    border-radius: 4px;
+  }
+
+  @media (min-width: 1100px) {
+    .contact-links a img {
+      object-fit: cover;
+      width: 100px;
+      height: 100px;
+      border-radius: 2em;
+      margin-bottom: 1em;
+      transition: transform 0.3s ease; /* Smooth transition for the transform property */
+  }
+    .contact-info a{
+      font-size: 20px;
+    }
+
+    .contact-info p{
+      font-size: 20px;
+    }
+
+  }
+
+  .contact-links img:hover {
+    transform: scale(1.2);
+  }
+  
+  
+  /* Contact Info (Email and Phone) Column */
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .contact-info a {
+    background: linear-gradient(
+        90deg,
+        #3ca4a4 0%,   /* Teal start */
+        #3ca4a4 30%,
+        rgb(169, 3, 3) 55%,  /* Deep red accent */
+        white 60%,    /* Small amount of white */
+        #3ca4a4 80%,  /* Teal again */
+        #3ca4a4 100%  /* Teal finish */
+      );
+      -webkit-background-clip: text; /* Clips the gradient to the text */
+      -webkit-text-fill-color: transparent; 
+      text-decoration: underline;
+  }
+  
+  .contact-info .email {
+    font-weight: bold;
+  }
+  
+  /* Address Styling */
+  .contact-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  
+  .address-container address {
+    font-style: normal;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  /* Optional: constrain max width for small screens */
+  .contact-links,
+  .contact-info,
+  .contact-container {
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid#3ca4a4;
+    color: white; /* White text color */
+    text-align: center; /* Centers all content inside footer */
+    padding: 2px 0; /* Adds space around the footer content */
+    margin-top: 10em;
+  
+}
+
+.footer-container {
+    display: block; /* Makes sure everything is stacked vertically */
+    width: 100%;
+}
+
+.footer-links {
+    list-style-type: none; /* Removes bullet points */
+    margin: 5px;
+    padding: 0;
+    display: flex; /* Flexbox for horizontal layout */
+    justify-content: center; /* Centers the links horizontally */
+    gap: 20px; /* Space between the links */
+}
+
+.footer-links li a {
+    text-decoration: none; /* Removes underline from links */
+    color: white; /* White color for the links */
+    font-size: 14px; /* Adjust font size */
+}
+
+
+
+.copyright {
+    font-size: 14px; /* Font size for copyright */
+    margin-top: 10px; /* Space above the copyright text */
+    color: white; /* White color for copyright text */
+    margin-bottom: 2px;
+}
+
+  
+.footer-links li a {
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer-links li a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0%;
+  height: 80%;
+  background: linear-gradient(
+    90deg,
+    #3ca4a4,
+    white 30%,
+    rgb(169, 3, 3) 50%,
+    white 70%,
+    #3ca4a4
+  );
+  border-radius: 50px;
+  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.footer-links li a:hover::after {
+  width: 100%;
+  left: 50%;
+  min-height: 100%;
+}
+
+.footer-links li a:hover {
+  color: black;
+}
+
+@media (min-width: 700px) {
+  .footer-links li a {
+    font-size: 16px; /* Adjust font size */
+}
+
+}
+  
+  
+

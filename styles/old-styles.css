@@ -1,0 +1,1388 @@
+
+
+/* DESKTOP DESIGN */
+@media (min-width: 1400px) {
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%; /* Ensure the height covers the entire viewport */
+    background-color: black; /* Sets background color to black */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    font-family: "California FB", serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    position: relative;
+}
+
+
+/* Custom Cursor Styles */
+#cursor-trail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999; /* Ensure it's on top */
+}
+
+.trail-element {
+    position: absolute;
+    width: 10px; /* Smaller size for stardust particles */
+    height: 10px;
+    border-radius: 50%;
+    background: radial-gradient(circle, 
+        rgba(255, 255, 255, 1) 0%, 
+        rgba(255, 255, 255, 0.5) 50%, 
+        rgba(255, 255, 255, 0) 100%);
+    opacity: 0;
+    transition: transform 0.2s ease, opacity 0.5s ease;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8), 
+                0px 0px 20px rgba(169, 3, 3, 0.6), 
+                0px 0px 30px rgba(60, 164, 164, 0.4);
+}
+
+/* Header container styling */
+header {
+    width: 100%; /* Full width of the screen */
+    text-align: center; /* Centers the content horizontally */
+    position: fixed; /* To control positioning of elements */
+    border-bottom: 1px solid white; /* Creates a thin white line */
+    z-index: 1000;
+    background-color: black;
+}
+
+/* Navigation container styling */
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 100%; /* Ensure it doesn't exceed screen width */
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/* Styling the logo */
+.logo {
+    height: 50px;
+    max-width: 100%; /* Ensures the logo is responsive */
+}
+
+/* Navigation list styling */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+/* Navigation links styling */
+.nav-links a {
+    position: relative;
+    text-decoration: none; /* Removes underline from links */
+    color: white; /* Sets text color to white */
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Hover effect for links */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 0%;
+    height: 80%;
+    background: linear-gradient(90deg, 
+    #3ca4a4,  /* Teal start */
+    white 30%, /* White blend */
+    rgb(169, 3, 3) 50%, /* Deep red accent */
+    white 70%, /* White blend again */
+    #3ca4a4  /* Baby blue finish */
+);
+    border-radius: 50px;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.nav-links a:hover::after {
+    width: 110%; /* Expands the background on hover */
+    left: 50%;
+}
+
+.nav-links a:hover {
+    z-index: 1;
+    color: black;
+}
+
+button {
+    display: none; /* Hide on desktop */
+  }
+  
+
+/* HOME PAGE */
+.page-title {
+    position: relative;
+    width: 80%;
+    max-width: 1200px;
+    margin: 80px auto 20px;
+    display: grid;
+    justify-content: center; /* Centers everything horizontally */
+    text-align: left;
+    background: linear-gradient(90deg, 
+    #3ca4a4 0%,   /* Teal start */
+    #3ca4a4 30%,
+    rgb(169, 3, 3) 55%,  /* Green continues for half */
+    white 60%,    /* Small amount of white */ /* Deep red accent */
+    #3ca4a4 80%,  /* Green again */
+    #3ca4a4 100%  /* Baby blue finish */
+    
+);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    scroll-margin-top: 100px;
+}
+
+.page-title h1 { 
+    margin: 5px 0;
+    justify-self: center; /* Ensures name stays centered */
+}
+
+.page-title h2 {
+    margin-bottom: 0;
+    justify-self: start; /* Aligns to the left of h1 */
+    font-size: 40px;
+}
+
+.page-title p {
+    margin-top: 5px;
+    justify-self: end; /* Aligns to the right of h1 */
+    font-size: 25px;
+}
+
+
+
+
+/* Container to hold both text and image */
+.content-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center; /* Centers everything horizontally */
+    position: relative;
+    width: 80%;
+    max-width: 1200px;
+    margin: 80px auto; /* Keeps spacing from the top */
+}
+
+.content-container p {
+    max-width: 70%;
+    font-size: large;
+    line-height: 2em;
+}
+
+.job-title {
+    background: linear-gradient(90deg, 
+        #3ca4a4,  /* Teal start */
+        white 40%, /* White blend */
+        rgb(169, 3, 3) 50%, /* Deep red accent */
+        white 60%, /* White blend again */
+        #3ca4a4  /* Baby blue finish */
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold; /* Optional: Make it bold */
+}
+
+
+
+/* Text container */
+.text-container {
+    background-color: black; /* Black background */
+    padding: 60px;
+    width: 200%; /* Text container is wider */
+    min-height: 400px; /* Ensures it's taller than the image */
+    border: 2px solid #3ca4a4; /* Blue border */
+    display: flex;
+    flex-direction: column; /* Stacks the text vertically */
+    justify-content: flex-start; /* Aligns text to the top */
+}
+
+/* Image container */
+.vid-container {
+    left: -170px; /* Slight overlap into the text container */
+    position: relative;
+    top: 60px; /* Keeps the image aligned with the text container */
+}
+
+/* Image styling */
+.vid-container video {
+    width: 140%; /* Makes the image moderately wide */
+    height: auto; /* Adjusts height based on aspect ratio */
+    object-fit: cover; /* Ensures image covers the container */
+    border: 2px solid rgb(113, 2, 2); 
+   
+}
+
+.website {
+    color:#3ca4a4;
+}
+
+.vid-container figure {
+    margin: 0; /* Reset default margin */
+    text-align: right; 
+}
+
+.vid-container figcaption {
+    font-size: 0.7em; /* Adjust size as needed */
+    color: white; /* Matches your site's color scheme */
+    margin-top: 5px; /* Adds spacing between image and caption */
+    margin-right: -14rem; 
+}
+
+/* Wrapper to hold both sections side by side */
+.nav-wrapper {
+    display: flex;
+    justify-content: center; /* Center the sections horizontally */
+    align-items: center; /* Align sections vertically */
+    gap: 5em; /* Add space between the two sections */
+    margin-top: 5em; /* Adjust as needed */
+}
+
+
+/* Remove margin-left from .nav-pages & .nav-about-page */
+.nav-pages,
+.nav-about-page {
+    margin-left: 0; /* Reset left margin */
+    position: relative; /* Ensure proper positioning */
+}
+
+
+/* Container for the nav pages */
+.nav-pages {
+    position: relative; /* This ensures that child elements with absolute positioning will be positioned relative to this container */
+    display: flex;
+    justify-content: center; /* Center all images horizontally */
+    width: 350px;
+    height: 350px;
+    top:10em;
+    margin-left: 10em;
+    margin-bottom: 30em;
+    border: 2px solid #3ca4a4;
+    overflow: visible; /* Allows images to go outside the container */
+}
+
+/* Red background box */
+.background-box {
+    position: absolute;
+    top: 25%; /* Center the box vertically */
+    left: 50%; /* Center the box horizontally */
+    transform: translate(-50%, -50%); /* Offset the box to be centered */
+    background-color: rgb(113, 2, 2);
+    width: 250px; /* Slightly wider than the main image */
+    height: 350px; /* Slightly taller than the main image */
+    z-index: 0; /* Ensure it's behind the images but above the default content */
+}
+
+
+.nav-pages div {
+    position: absolute; /* Allows overlapping */
+    
+}
+
+/* Left image (smaller, tilted left) */
+.movie-page img {
+    width: 140px;
+    height: 200px;
+    object-fit: cover;
+    transform: rotate(-20deg) translateX(-100px); /* Rotate & move left */
+    z-index: 1;
+}
+/* Right image (smaller, tilted right) */
+.trivia-page img {
+    width: 140px;
+    height: 200px;
+    object-fit: cover;
+    transform: rotate(20deg) translateX(100px); /* Rotate & move right */
+    z-index: 1;
+}
+/* Center image (largest & on top) */
+.country-page img {
+    width: 200px;
+    height: 260px;
+    object-fit: cover;
+    z-index: 3; /* Ensure it's above both */
+    transform: translateY(-50px); /* Move the center image up so it overlaps the container */
+}
+
+.title-works {
+    position: absolute;
+    top: 75%;  /* Adjust the value to move it to the right position underneath the images */
+    left: 50%;  /* Center the title horizontally */
+    transform: translateX(-50%); /* Adjust the position to exactly center */
+    font-size: 2rem; /* Make the title large enough */
+    font-weight: bold; /* Optional: make the title bold */
+    background: linear-gradient(90deg, 
+        #3ca4a4,  /* Teal start */
+        white 40%, /* White blend */
+        rgb(169, 3, 3) 50%, /* Deep red accent */
+        white 60%, /* White blend again */
+        #3ca4a4  /* Baby blue finish */
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    z-index: 2; /* Make sure it sits above the container */
+    cursor: pointer; /* Show a pointer cursor to indicate it's clickable */
+    transition: transform 0.3s ease, font-size 0.3s ease; /* Smooth transition for scale */
+}
+
+.title-works:hover {
+    transform: translateX(-50%) translateY(-10px) scale(1.1); 
+    font-size: 2.5rem; /* Optional: slightly bigger size on hover */
+}
+
+/* Container for the about  pages */
+.nav-about-page {
+    position: relative; /* This ensures that child elements with absolute positioning will be positioned relative to this container */
+    display: flex;
+    justify-content: center; /* Center all images horizontally */
+    width: 350px;
+    height: 350px;
+    top:10em;
+    margin-right: 10em;
+    margin-bottom: 30em;
+    border: 2px solid #3ca4a4;
+    overflow: visible; /* Allows images to go outside the container */
+}
+
+/* Red background box */
+.about-background-box {
+    position: absolute;
+    top: 25%; /* Center the box vertically */
+    left: 50%; /* Center the box horizontally */
+    transform: translate(-50%, -50%); /* Offset the box to be centered */
+    background-color: rgb(113, 2, 2);
+    width: 250px; /* Slightly wider than the main image */
+    height: 350px; /* Slightly taller than the main image */
+    z-index: 0; /* Ensure it's behind the images but above the default content */
+}
+
+/* Right image (smaller, tilted right) */
+.about-me-page img {
+    width: 200px;
+    height: 260px;
+    object-fit: cover;
+    transform: translateX(2px) translateY(-50px); /* Rotate & move right */
+}
+
+/* Center image (largest & on top) */
+.nl-page img {
+    width: 140px;
+    height: 200px;
+    object-fit: cover;
+    z-index: 3; /* Ensure it's above both */
+    transform: rotate(-20deg) translateX(50px) translatey(55px);
+}
+
+.kayaking-page img {
+    width: 140px;
+    height: 200px;
+    object-fit: cover;
+    transform: rotate(20deg) translateX(-50px) translatey(55px);/* Rotate & move left */
+    z-index: 1;
+}
+
+.title-about-me {
+    position: absolute;
+    top: 75%;  /* Adjust the value to move it to the right position underneath the images */
+    left: 50%;  /* Center the title horizontally */
+    transform: translateX(-50%); /* Adjust the position to exactly center */
+    font-size: 2rem; /* Make the title large enough */
+    font-weight: bold; /* Optional: make the title bold */
+    background: linear-gradient(90deg, 
+        #3ca4a4,  /* Teal start */
+        white 40%, /* White blend */
+        rgb(169, 3, 3) 50%, /* Deep red accent */
+        white 60%, /* White blend again */
+        #3ca4a4  /* Baby blue finish */
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    z-index: 2; /* Make sure it sits above the container */
+    cursor: pointer; /* Show a pointer cursor to indicate it's clickable */
+    transition: transform 0.3s ease, font-size 0.3s ease; /* Smooth transition for scale */
+}
+
+.title-about-me:hover {
+    transform: translateX(-50%) translateY(-10px) scale(1.1); 
+    font-size: 2.5rem; /* Optional: slightly bigger size on hover */
+}
+
+.lets-connect {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 0;
+    margin-top: -250px; /* Adjust this as needed to position it correctly */
+    margin-bottom: 5em;
+}
+
+.lets-connect h2 {
+    background: linear-gradient(90deg, 
+    #3ca4a4,  /* Teal start */
+    white 30%, /* White blend */
+    rgb(169, 3, 3) 50%, /* Deep red accent */
+    white 70%, /* White blend again */
+    #3ca4a4); /* Teal end */
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    transition: transform 0.3s ease; 
+}
+
+.lets-connect h2:hover {
+    transform: scale(1.1); /* Scales the text and icon by 10% */
+  }
+
+.lets-connect .plug-icon {
+    background: linear-gradient(90deg, 
+    #3ca4a4,  /* Teal start */
+    white 30%, /* White blend */
+    rgb(169, 3, 3) 50%, /* Deep red accent */
+    white 70%, /* White blend again */
+    #3ca4a4); /* Teal end */
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.plug-icon {
+    margin-left: -10px; /* Brings it closer to the text */
+    font-size: 1.8rem; /* Matches the text size */
+}
+
+
+/* WORKS PAGE */
+
+.works {
+    text-align: center;
+    margin: 70em 0 40em; /* Keeps your original margin */
+    scroll-margin-top: 100px;
+  }
+
+  .gradient-text {
+    font-size: 3em;
+    background: linear-gradient(90deg, #3ca4a4, white 40%, rgb(169, 3, 3) 50%, white 75%, #3ca4a4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .palette-emoge {
+    font-size: 4rem; /* Adjust size of emoji */
+    margin-left: 0.2em;
+  }
+
+  .works-p {
+    color: white;
+    font-size: 1.3em;
+    font-style: italic;
+  }
+
+  /* Works container grid */
+.works-container {
+    display: grid;
+    grid-template-columns: repeat(3, auto); /* Three columns */
+    gap: 300px 20px; /* Space between items */
+    justify-content: center; /* Center the grid horizontally */
+    max-width: 1200px; /* Limit the width of the entire grid */
+    margin: 0 auto; /* Center the grid vertically and horizontally */
+    margin-top: -25em;
+    margin-bottom: 20em;
+  }
+  
+  /* Individual work items */
+  .work-item {
+    position: relative;
+    text-align: center; /* Center align content inside each item */
+    border: 2px solid #3ca4a4; /* Optional border for styling */
+    padding: 10px;
+    border-radius: 8px; /* Optional rounded corners */
+    width: 400px; /* Set a fixed width for each container */
+    height: 400px;
+  }
+
+  .work-item::before {
+    content: ""; /* Creates an empty pseudo-element */
+    position: absolute;
+    top: -90px; /* Makes the box come out over the top of the container */
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 80px); /* Slightly smaller than the container */
+    height: calc(100% - 80px); /* Slightly smaller than the container height */
+    background-color: rgb(113, 2, 2); /* Red color for contrast */
+    z-index: 0; /* Ensures it's behind the content inside .work-item */
+  }
+
+  .work-item a {
+    display: inline-block; /* Make links inline so they appear side by side */
+    text-decoration: none; /* Remove underline from links */
+    position: relative;
+    text-decoration: none; /* Removes underline from links */
+    color: white; /* Sets text color to white */
+    font-size: 21px;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: color 0.3s ease-in-out;
+    padding-bottom: 10px;
+}
+
+/* Hover effect for links */
+.work-item a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 0%;
+    height: 60%;
+    background: linear-gradient(90deg, 
+    #3ca4a4,  /* Teal start */
+    white 30%, /* White blend */
+    rgb(169, 3, 3) 50%, /* Deep red accent */
+    white 70%, /* White blend again */
+    #3ca4a4  /* Baby blue finish */
+);
+    border-radius: 50px;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.work-item a:hover::after {
+    width:80%; /* Expands the background on hover */
+    left: 50%;
+}
+
+.work-item a:hover {
+    z-index: 1;
+    color: black;
+}
+
+
+  
+  /* Images inside work items */
+  .work-item img {
+    position: relative;
+    width: 100%;
+    max-width: 250px; /* Make images responsive within their container */
+    height: 300px; /* Maintain aspect ratio of images */
+    object-fit: cover;
+    z-index: 5;
+    margin-top: -90px;
+    box-shadow: 2px 10px 10px 8px black;
+  }
+
+  .work-item p {
+    position: relative;
+    color: white;
+    margin-top: 1.8em;
+    margin-bottom: 10px;
+    z-index: 2;
+    font-size: 1.5em;
+    color: aqua;
+  }
+  
+  /* Links inside work items */
+
+
+ /* General Styles */
+.tools-toggle {
+    position: relative;
+    display: block;
+    margin-top: 1.5em;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+}
+
+.tools-text {
+    background: linear-gradient(90deg, #3ca4a4, white 40%, rgb(169, 3, 3) 50%, white 60%, #3ca4a4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 25px;
+}
+
+.crab {
+    display: inline-block;
+    transition: transform 1s ease;
+    margin-left: 0.5em;
+    font-size: 1.5em;
+}
+
+/* Dropdown Styles */
+.tools-dropdown {
+    display: none;
+    background-color: black;
+    border: 1px solid rgb(169, 3, 3);
+    padding: 1em;
+    list-style-type: none;
+    overflow: hidden; /* Ensure overflow is hidden */
+}
+
+.tools-dropdown li {
+    color: white;
+    opacity: 0; /* Start invisible */
+    transform: translateY(-20px); /* Start slightly above */
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+/* When dropdown is active, make it visible and animate list items dynamically */
+.work-item.active .tools-dropdown {
+    display: block; /* Show dropdown when .work-item has active class */
+}
+
+/* Apply the cascadeDown animation when the dropdown is active */
+.work-item.active .tools-dropdown li {
+    animation: cascadeDown 0.5s ease forwards;
+}
+
+
+
+/* Delays for cascading effect (applied in both active and closing states) */
+.work-item.active .tools-dropdown li:nth-child(1),
+.work-item.closing .tools-dropdown li:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.work-item.active .tools-dropdown li:nth-child(2),
+.work-item.closing .tools-dropdown li:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.work-item.active .tools-dropdown li:nth-child(3),
+.work-item.closing .tools-dropdown li:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+.work-item.active .tools-dropdown li:nth-child(4),
+.work-item.closing .tools-dropdown li:nth-child(4) {
+    animation-delay: 0.7s;
+}
+
+/* Keyframes for cascading effect */
+@keyframes cascadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Spin the crab emoji when active */
+.work-item.active .crab {
+    transform: rotate(-180deg); /* Spins the crab upside down counter-clockwise */
+}
+
+ .work-item.closing .crab {
+    transform: rotate(0deg); /* Spins the crab to original rotation */
+}
+
+/* works video */
+.works-vid-container {
+    position: relative;
+    text-align: center;
+    margin-bottom: 5em; /* Reduced margin below the container */
+    border: 2px solid #3ca4a4; /* Teal border */
+    width: 1300px;
+    height: 600px;
+    margin: 0 auto; /* Center the entire container */
+    z-index: 1; /* Ensure this is above other elements */
+    overflow: visible; /* Make sure content can flow out of the container */
+    margin-top: 35em;
+}
+
+.works-video-p {
+    background: linear-gradient(90deg, 
+        #3ca4a4 0%, #3ca4a4 40%,
+        white 45%, rgb(169, 3, 3) 50%, 
+        white 60%, #3ca4a4 70%,
+        #3ca4a4 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.5em;
+    position: relative;
+    z-index: 4;
+    display: block; /* Make it a block-level element */
+    width: 100%; /* Span the full width of its parent */
+    text-align: center; /* Center the text */
+    margin-top: -2em;
+    margin-bottom: -10em;
+}
+
+.works-video-p .emoji {
+    -webkit-background-clip: text; /* Revert to default or another appropriate value */
+    -webkit-text-fill-color: initial; /* Revert to the emoji's original color */
+    font-style: normal; /* Ensure the emoji is not italicized */
+}
+
+/* Video Wrapper (Red Background) */
+.video-wrapper {
+    position: relative;
+    width: 1050px; /* Red background width */
+    height: 700px; /* Red background height */
+    background-color: rgb(169, 3, 3);
+    margin: 0 auto; /* Center horizontally */
+    display: flex; /* Use flexbox to control the stacking order */
+    justify-content: center; /* Horizontally center content */
+    align-items: center; /* Vertically center content */
+    top: -150px; /* Adjust to bring it up over the border */
+    z-index: 0; /* Ensure this is behind the title but above the container */
+}
+
+/* Video Styles */
+.video-wrapper video {
+    position: relative;
+    width: 950px; /* Video width */
+    height: 600px; /* Video height */
+    object-fit: cover;
+    z-index: 1; /* Above red background */
+    box-shadow: 2px 12px 12px 12px black;
+    margin-top: -3em;
+}
+
+/* Let's Connect Section */
+.lets-connect-works {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 0;
+    margin-top: 5em; /* Adjust this as needed to position it correctly */
+    margin-bottom: 5em;
+    position: relative; /* To handle stacking context */
+    z-index: 2; /* Ensure it is above the video container */
+}
+
+.lets-connect-works h2 {
+    background: linear-gradient(90deg, 
+    #3ca4a4,  /* Teal start */
+    white 30%, /* White blend */
+    rgb(169, 3, 3) 50%, /* Deep red accent */
+    white 70%, /* White blend again */
+    #3ca4a4); /* Teal end */
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    transition: transform 0.3s ease; 
+}
+
+.lets-connect-works h2:hover {
+    transform: scale(1.1); /* Scales the text and icon by 10% */
+}
+
+.lets-connect-works .plug-icon-works {
+    background: linear-gradient(90deg, 
+    #3ca4a4,  /* Teal start */
+    white 30%, /* White blend */
+    rgb(169, 3, 3) 50%, /* Deep red accent */
+    white 70%, /* White blend again */
+    #3ca4a4); /* Teal end */
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.plug-icon-works {
+    margin-left: -10px; /* Brings it closer to the text */
+    font-size: 1.8rem; /* Matches the text size */
+}
+
+/* ABOUT PAGE */
+
+.about-section {
+    text-align: center;
+    margin: 70em 0; /* Keeps your original margin */
+    scroll-margin-top: 100px;
+  }
+
+  .gradient-text-about {
+    font-size: 3em;
+    background: linear-gradient(90deg, #3ca4a4, white 40%, rgb(169, 3, 3) 50%, white 75%, #3ca4a4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .female-emoge {
+    font-size: 4rem; /* Adjust size of emoji */
+    margin-left: 0.2em;
+    color: white;
+  }
+
+  .about-p {
+    color: white;
+    font-size: 1.3em;
+    font-style: italic;
+  }
+
+  
+/* Container to hold both text and image */
+.about-content-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center; /* Centers everything horizontally */
+    position: relative;
+    width: 80%;
+    max-width: 1200px;
+    margin: -60em auto 30em; /* Keeps spacing from the top */
+    
+
+}
+
+.about-content-container p {
+    max-width: 70%;
+    font-size: large;
+    line-height: 2em;
+}
+
+.job-title {
+    background: linear-gradient(90deg, 
+        #3ca4a4,  /* Teal start */
+        white 40%, /* White blend */
+        rgb(169, 3, 3) 50%, /* Deep red accent */
+        white 60%, /* White blend again */
+        #3ca4a4  /* Baby blue finish */
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold; /* Optional: Make it bold */
+}
+
+
+
+/* Text container */
+.about-text-container {
+    background-color: black; /* Black background */
+    color: white; /* White text */
+    padding: 60px;
+    width: 200%; /* Text container is wider */
+    min-height: 400px; /* Ensures it's taller than the image */
+    border: 2px solid #3ca4a4; /* Blue border */
+    display: flex;
+    flex-direction: column; /* Stacks the text vertically */
+    justify-content: flex-start; /* Aligns text to the top */
+}
+
+/* Image container */
+.about-img-container {
+    left: -170px; /* Slight overlap into the text container */
+    position: relative;
+    top: 60px; /* Keeps the image aligned with the text container */
+}
+
+/* Image styling */
+.about-img-container img {
+    width: 140%;
+    height: auto;
+    object-fit: cover;
+    border: 2px solid rgb(113, 2, 2);
+    display: block;
+    min-height: 400px; /* Set a minimum height to ensure it's tall enough */
+}
+
+.about-img-container figure {
+    margin: 0; /* Reset default margin */
+    text-align: right; 
+}
+
+.about-img-container figcaption {
+    font-size: 0.7em; /* Adjust size as needed */
+    color: white; /* Matches your site's color scheme */
+    margin-top: 5px; /* Adds spacing between image and caption */
+    margin-right: -12.5rem; 
+}
+
+/* General Styling for the Section */
+.get-to-know-me {
+    text-align: center;
+    margin: -22em auto 20em;
+    padding: 20px;
+    color: white; /* Set text color to white */
+}
+
+.get-to-know-me h2 {
+    font-size: 2em;
+    margin-bottom: 1em;
+    background: linear-gradient(90deg, 
+        #3ca4a4 0%, #3ca4a4 40%,
+        white 45%, rgb(169, 3, 3) 50%, 
+        white 60%, #3ca4a4 70%,
+        #3ca4a4 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Container for all dropdowns */
+.dropdown-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Styling for each dropdown */
+.dropdown {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.dropdown-content p {
+    font-weight: 100; /* Lighter font weight */
+    line-height: 1.6; /* Increased line height for spacing */
+    margin-bottom: 1em; /* Add space after each paragraph */
+    font-size: 20px;
+}
+
+.dropdown-content ul li {
+    font-weight: 100; /* Lighter font weight */
+    line-height: 1.6; /* Increased line height for spacing */
+    margin-bottom: 1em; /* Add space after each paragraph */
+    font-size: 20px;
+}
+
+
+
+/* Styling for the dropdown button */
+.dropdown-button {
+    background-color: black; /* Darker background color */
+    color: white;
+    padding: 15px;
+    font-size: 1.2em;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+    border: 1px solid #3ca4a4; /* Border color */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.dropdown-button:hover {
+    background-color: #555;
+}
+
+/* Styling for the dropdown content */
+.dropdown-content {
+    position: relative;
+    background-color: #222;
+    color: white;
+    padding: 15px;
+    width: 100%;
+    text-align: left;
+    box-sizing: border-box;
+    max-height: 0; /* Initially hidden */
+    overflow: hidden;
+    transition: max-height 1s ease-in-out; /* Adjust timing */
+    z-index: 999;
+}
+
+/* Show the dropdown content when the dropdown button is clicked */
+.dropdown.active .dropdown-content {
+    max-height: 1200px; 
+}
+
+/* Rotate the crab emoji when the dropdown is active */
+.dropdown.active .crab {
+    transform: rotate(90deg);
+}
+
+/* Wider Buttons */
+.dropdown-button {
+    width: 100%; /* Make the buttons wider */
+}
+
+.crab-know-me {
+    transition: transform 0.5s ease;
+    display: inline-block;
+}
+
+.dropdown.active .crab-know-me {
+    transform: rotate(-180deg);
+}
+
+.crab-tools {
+    transition: transform 0.5s ease;
+    display: inline-block;
+}
+
+.tools-toggle.active .crab-tools {
+    transform: rotate(-180deg);
+}
+
+/* Let's Connect Section */
+.lets-connect-about {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 0;
+    margin-top: -8em; /* Adjust this as needed to position it correctly */
+    margin-bottom: 5em;
+    position: relative; /* To handle stacking context */
+    z-index: 2; /* Ensure it is above the video container */
+}
+
+.lets-connect-about h2 {
+    background: linear-gradient(90deg, 
+    #3ca4a4,  /* Teal start */
+    white 30%, /* White blend */
+    rgb(169, 3, 3) 50%, /* Deep red accent */
+    white 70%, /* White blend again */
+    #3ca4a4); /* Teal end */
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    transition: transform 0.3s ease; 
+}
+
+.lets-connect-about h2:hover {
+    transform: scale(1.1); /* Scales the text and icon by 10% */
+}
+
+.lets-connect-about .plug-icon-about {
+    background: linear-gradient(90deg, 
+    #3ca4a4,  /* Teal start */
+    white 30%, /* White blend */
+    rgb(169, 3, 3) 50%, /* Deep red accent */
+    white 70%, /* White blend again */
+    #3ca4a4); /* Teal end */
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.plug-icon-works {
+    margin-left: -10px; /* Brings it closer to the text */
+    font-size: 1.8rem; /* Matches the text size */
+}
+
+
+/* CONTACT SECTION */
+
+.contact-me {
+    text-align: center;
+    margin: 70em 0 40em; /* Keeps your original margin */
+    scroll-margin: 100px;
+  }
+
+  .contact-emoge {
+    font-size: 4rem; /* Adjust size of emoji */
+    margin-left: 0.2em;
+  }
+
+  .contact-me p {
+    color: white;
+    font-size: 1.3em;
+    font-style: italic;
+  }
+  .contact-links img {
+    object-fit: cover;
+    width: 200px;
+    height: 200px;
+    border-radius: 2em;
+    transition: transform 0.3s ease; /* Smooth transition for the transform property */
+}
+
+.contact-links img:hover {
+    transform: scale(1.1); /* Enlarge the image by 10% on hover */
+}
+
+  .linked-in {
+    object-position: left;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 7em; /* Adjust the value to increase/decrease the spacing */
+    margin-top: 10em;
+}
+
+.contact-info {
+    display: flex;
+    align-items: center; /* Vertically align items */
+    justify-content: center; /* Center items horizontally */
+    gap: 7em; /* Adjust the space between the elements */
+    margin-top: -35em;
+    margin-bottom: 20em;
+}
+
+.email {
+    background: linear-gradient(90deg, 
+        #3ca4a4, 
+        white 30%, 
+        rgb(169, 3, 3) 50%, 
+        white 70%, 
+        #3ca4a4
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 1.5em; /* Adjust as needed */
+}
+
+.contact-info a {
+    text-decoration: none;
+}
+
+.contact-info p {
+    background: linear-gradient(90deg, 
+        #3ca4a4, 
+        white 30%, 
+        rgb(169, 3, 3) 50%, 
+        white 70%, 
+        #3ca4a4
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 1.5em; /* Adjust as needed */
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -17em;
+    margin-bottom: 7em;
+}
+
+.address-container {
+    order: -1; /* Moves the address to the top */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.address-container address {
+    font-style: italic;
+    color: white;
+    font-size: 18px;
+}
+
+
+
+/* FOOTER */
+
+  footer {
+    width: 100%; /* Full width of the screen */
+    text-align: center; /* Centers the content horizontally */
+    position: fixed; /* Fix it to the screen */
+    bottom: 0; /* Keeps it at the bottom */
+    left: 0; /* Ensures it aligns properly */
+    border-top: 1px solid white; /* Creates a thin white line */
+    z-index: 100;
+    background-color: black;
+}
+
+
+/* Navigation container styling */
+.footer-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 100%; /* Ensure it doesn't exceed screen width */
+    padding: 5px; /* Adds some padding to ensure no content is too close to the edge */
+}
+
+/* Styling the logo */
+.footer-logo {
+    height: 50px;
+    max-width: 100%; /* Ensures the logo is responsive */
+    margin-right: 0.5em;
+}
+
+/* Navigation list styling */
+.footer-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+/* Navigation links styling */
+.footer-links a {
+    position: relative;
+    text-decoration: none; /* Removes underline from links */
+    color: white; /* Sets text color to white */
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 20px;
+    transition: color 0.3s ease-in-out;
+}
+
+
+
+/* Hover effect for links */
+.footer-links a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+    #3ca4a4,  /* Teal start */
+    white 30%, /* White blend */
+    rgb(169, 3, 3) 50%, /* Deep red accent */
+    white 70%, /* White blend again */
+    #3ca4a4  /* Baby blue finish */
+);
+    border-radius: 50px;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.footer-links a:hover::after {
+    width: 110%; /* Expands the background on hover */
+    left: 50%;
+}
+
+.footer-links a:hover {
+    z-index: 1;
+    color: black;
+}
+
+footer a:visited {
+    color: white;
+}
+
+.copyright {
+    color: white;
+    margin-top: -.2em;
+}
+
+}
+
+@media (min-width: 1200px) {
+    .closed {
+        right: 0;
+    }
+
+    .opened {
+        right: 0;
+    }
+
+    .nav-container {
+        position: fixed;
+    }
+
+    #nav-menu {
+        flex-direction: row;
+        position: fixed;
+        right: 0;
+        left: 0;
+        top: 0;
+        background-color: transparent;
+        backdrop-filter: none;
+        height: auto;
+        width: auto;
+    }
+}
+
+/* Container for all dropdowns */
+.dropdown-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%; /* Almost full width of mobile screen */
+    margin: 0 auto;
+    max-width: 360px;
+}
+
+/* Styling for each dropdown */
+.dropdown {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Dropdown button */
+.dropdown-button {
+    background-color: black;
+    color: white;
+    padding: 12px;
+    font-size: 1em;
+    border: 1px solid #3ca4a4;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    transition: background-color 0.3s;
+}
+
+.dropdown-button:hover {
+    background-color: #555;
+}
+
+/* Dropdown content */
+.dropdown-content {
+    position: relative;
+    background-color: #222;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s ease-in-out;
+    z-index: 999;
+}
+
+/* Open dropdown */
+.dropdown.active .dropdown-content {
+    max-height: 1200px;
+}
+
+/* Dropdown content text */
+.dropdown-content p,
+.dropdown-content ul li {
+    font-weight: 100;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 1em;
+}
+
+/* Crab rotation */
+.crab-know-me,
+.crab-tools {
+    transition: transform 0.5s ease;
+    display: inline-block;
+}
+
+.dropdown.active .crab-know-me,
+.tools-toggle.active .crab-tools {
+    transform: rotate(-180deg);
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6.06 6.43">
+  <text/>
+  <g id="logo">
+    <circle cx="3.03" cy="3.4" r="2.98" stroke="#fff" stroke-miterlimit="10" stroke-width=".1"/>
+    <g>
+      <text transform="translate(2.88 5.21)" fill="#fff" font-family="CalifornianFB-Reg, &apos;Californian FB&apos;" font-size="4"><tspan x="0" y="0">D</tspan></text>
+      <text transform="translate(2.88 5.21)" fill="#fff" font-family="CalifornianFB-Reg, &apos;Californian FB&apos;" font-size="4"><tspan x="0" y="0">D</tspan></text>
+    </g>
+    <text transform="translate(.59 4.16)" fill="#fff" font-family="CalifornianFB-Italic, &apos;Californian FB&apos;" font-size="5" font-style="italic"><tspan x="0" y="0">A</tspan></text>
+  </g>
+</svg>
